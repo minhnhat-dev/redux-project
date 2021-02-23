@@ -21,8 +21,7 @@ function Photos(props) {
                     <li
                         onClick={() => handleOnClickItem(item.id)}
                         key={item.id}
-                        className="photo-item"
-                        style={{ backgroundColor: item.id === clickId ? 'crimson' : 'lightcyan' }}
+                        className={item.id === clickId ? 'photo-item photo-item-active' : 'photo-item'}
                     >
                         {item.fileName}
                     </li>

@@ -1,11 +1,12 @@
 import React from 'react';
-import HomePage from './components/HomePage';
+import Routes from './components/Routes';
+import Header from './components/Header';
 
 function App() {
     return (
-        <div>
-            <HomePage />
-        </div>
+        <>
+            <Routes />
+        </>
     );
 }
 

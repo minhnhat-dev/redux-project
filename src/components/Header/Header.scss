@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 70px;
+
+    background-color: lightcyan;
+    text-decoration: none;
+
+    &__title {
+        font-weight: bold;
+        color: black;
+
+        transition: all 0.25s ease-in-out 0s;
+            
+        &--active,
+        &:hover {
+            text-decoration: none;
+            color: deeppink;
+        }
+    }  
+}
