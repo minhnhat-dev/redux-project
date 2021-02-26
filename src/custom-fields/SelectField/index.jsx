@@ -5,25 +5,27 @@ import { ErrorMessage } from 'formik';
 // field, // { name, value, onChange, onBlur }
 // form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
 // ...props
-InputField.propTypes = {
+SelectField.propTypes = {
     field: PropTypes.object.isRequired,
     form: PropTypes.object.isRequired,
 
     type: PropTypes.string,
     label: PropTypes.string,
+    options: PropTypes.array,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool
 };
 
-InputField.defaultProps = {
+SelectField.defaultProps = {
     type: 'text',
     label: '',
     placeholder: '',
+    options: [],
     disabled: false
 };
 
-function InputField(props) {
-    const { label, field, form, type, placeholder, disabled } = props;
+function SelectField(props) {
+    const { label, field, form, type, placeholder, disabled, options } = props;
     const { name } = field;
     const { errors, touched } = form;
     const showError = errors[name] && touched[name];
@@ -38,11 +40,13 @@ function InputField(props) {
                 placeholder={placeholder}
                 disabled={disabled}
                 className={showError ? 'is-invalid' : ''}
-            />
+            >
+                {options.map((option) => <option value={option.value}>{option.title}</option>)}
+            </Input>
             <ErrorMessage name={name} component={FormFeedback} />
             {/* {showError && <FormFeedback>{errors[name]}</FormFeedback>} */}
         </FormGroup>
     );
 }
 
-export default InputField;
+export default SelectField;

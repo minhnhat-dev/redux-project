@@ -5,7 +5,7 @@ import { AddPhotos, Main } from './pages';
 
 function Photos(props) {
     const match = useRouteMatch();
-    console.log('Photos match', match);
+
     return (
         <Switch>
             <Route exact path={`${match.url}`} component={Main} />

@@ -1,9 +1,5 @@
-export const addPhoto = (payload) => ({
-    type: 'ADD',
-    payload
-});
+import { createAction } from '@reduxjs/toolkit';
 
-export const changeClickId = (payload) => ({
-    type: 'CHANGE_CLICK_ID',
-    payload
-});
+export const addPhoto = createAction('ADD');
+
+export const changeClickId = createAction('CHANGE_CLICK_ID');

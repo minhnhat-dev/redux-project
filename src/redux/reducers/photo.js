@@ -1,26 +1,18 @@
 /* eslint-disable no-case-declarations */
+import { createReducer, createAction } from '@reduxjs/toolkit';
+
+const add = createAction('add');
+const changeId = createAction('changeId');
 const INITIAL_STATE = {
     list: [],
     clickId: ''
 };
 
-const photo = (state = INITIAL_STATE, action) => {
-    const { type, payload } = action;
-    switch (type) {
-    case 'ADD':
-        const newList = [...state.list, payload];
-        return {
-            ...state,
-            list: newList
-        };
-    case 'CHANGE_CLICK_ID':
-        const newId = payload;
-        return {
-            ...state,
-            clickId: newId
-        };
-    default: return state;
+const photo = createReducer(INITIAL_STATE, {
+    [add]: (state, action) => state.push(action.payload),
+    [changeId]: (state, action) => {
+        state.clickId = action.payload;
     }
-};
+});
 
 export default photo;

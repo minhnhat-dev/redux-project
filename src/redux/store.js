@@ -1,7 +1,10 @@
-import { createStore } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+import photoReducer from '../features/Photos/photoSlice';
 
-import rootReducer from './reducers';
-
-const store = createStore(rootReducer);
+const store = configureStore({
+    reducer: {
+        photo: photoReducer
+    }
+});
 
 export default store;

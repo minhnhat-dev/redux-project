@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
+import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button } from 'reactstrap';
 import './Photos.scss';
 
 function Photos(props) {
@@ -16,17 +17,17 @@ function Photos(props) {
 
     return (
         <>
-            <ul>
-                {photos.map((item) => (
-                    <li
-                        onClick={() => handleOnClickItem(item.id)}
-                        key={item.id}
-                        className={item.id === clickId ? 'photo-item photo-item-active' : 'photo-item'}
-                    >
-                        {item.fileName}
-                    </li>
-                ))}
-            </ul>
+            {photos && photos.map((photo) => (
+                <Card className="photo-item">
+                    <CardImg top width="100%" src={photo.photoUrl}alt="Card image cap" />
+                    <CardBody>
+                        <CardTitle tag="h5">{photo.title}</CardTitle>
+                        <CardSubtitle tag="h6" className="mb-2 text-muted" />
+                        <CardText>{photo.content}</CardText>
+                        <Button outline onClick={handleOnClickItem}>See Detail</Button>
+                    </CardBody>
+                </Card>
+            )) }
         </>
     );
 }
