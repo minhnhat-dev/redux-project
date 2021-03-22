@@ -41,7 +41,14 @@ function SelectField(props) {
                 disabled={disabled}
                 className={showError ? 'is-invalid' : ''}
             >
-                {options.map((option) => <option value={option.value}>{option.title}</option>)}
+                {options.map((option, index) => (
+                    <option
+                        key={index.toString()}
+                        value={option.value}
+                    >
+                        {option.title}
+                    </option>
+                ))}
             </Input>
             <ErrorMessage name={name} component={FormFeedback} />
             {/* {showError && <FormFeedback>{errors[name]}</FormFeedback>} */}

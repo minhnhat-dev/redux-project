@@ -10,6 +10,7 @@ function Photos(props) {
         <Switch>
             <Route exact path={`${match.url}`} component={Main} />
             <Route path={`${match.url}/add/`} component={AddPhotos} />
+            <Route path={`${match.url}/update/:photoId`} component={AddPhotos} />
         </Switch>
     );
 }

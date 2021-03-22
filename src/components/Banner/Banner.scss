@@ -1,17 +1,22 @@
-.header {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 80px;
-    text-decoration: none;
+.banner {
+    height: 200px;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url('../../assets/images/header-images.png');
+    background-position: center;
+    background-size: cover;
 
     &__title {
         font-weight: bold;
-        color: black;
+        font-size: 50px;
 
+        color: black;
+       
         transition: all 0.25s ease-in-out 0s;
-            
+        
         &--active,
         &:hover {
             text-decoration: none;

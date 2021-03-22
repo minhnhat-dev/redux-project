@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import './Header.scss';
 
 function Header(props) {
+    const [account, setAccount] = useState(null);
+    useEffect(() => {
+        setAccount({ user: null });
+        // accountService.account.subscribe((x) => setAccount(x));
+    }, []);
+
     return (
         <header>
             <Container fluid>
@@ -37,6 +43,7 @@ function Header(props) {
                             Add Photos
                         </NavLink>
                     </Col>
+
                 </Row>
             </Container>
         </header>

@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'reactstrap';
 import './PhotoForm.scss';
+import { getPhoto } from '../../features/Photos/photoSlice';
 
 function getRandomPhoto() {
     const randomId = Math.trunc(Math.random() * 200);
-    const url = `https://picsum.photos/id/${randomId}/250/200`;
+    const url = `https://picsum.photos/id/${randomId}/300/300`;
     return url;
 }
 
@@ -32,7 +33,14 @@ function PhotoForm(props) {
 
             </Button>
             <div>
-                <img className="box-from-photo__image" src={imageUrl} width="250" height="200" />
+                <img
+                    className="box-from-photo__image"
+                    src={imageUrl}
+                    alt="Ooops ... not found. Please click random again!"
+                    onError={handleOnClickChangeImage}
+                    width="300"
+                    height="300"
+                />
             </div>
         </div>
     );

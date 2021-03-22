@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button } from 'reactstrap';
+import { Button, Spinner } from 'reactstrap';
 import { Formik, Form, FastField } from 'formik';
 import * as Yup from 'yup';
 import InputField from '../../../../custom-fields/InputField';
@@ -39,13 +39,7 @@ const listFields = [
 ];
 
 function FormPhoto(props) {
-    const { onSubmit } = props;
-    const initValues = {
-        title: '',
-        category: '',
-        photoUrl: '',
-        content: ''
-    };
+    const { onSubmit, initValues, isAddMode } = props;
     const createPhotoSchema = Yup.object().shape({
         title: Yup.string()
             .min(2, 'Too Short!')
@@ -59,8 +53,6 @@ function FormPhoto(props) {
     });
 
     function handleOnSubmit(values, actions) {
-        console.log('values: ', values);
-        console.log('actions: ', actions);
         onSubmit(values);
     }
 
@@ -70,44 +62,67 @@ function FormPhoto(props) {
             validationSchema={createPhotoSchema}
             onSubmit={handleOnSubmit}
         >
-            <Form className="form-photo">
-                <FastField
-                    name="title"
-                    component={InputField}
+            {(formikProps) => {
+                const {
+                    values,
+                    touched,
+                    errors,
+                    dirty,
+                    isSubmitting,
+                    handleChange,
+                    handleBlur,
+                    handleSubmit,
+                    handleReset
+                } = formikProps;
+                return (
+                    <Form className="form-photo">
+                        <FastField
+                            name="title"
+                            component={InputField}
 
-                    type="text"
-                    label="Title"
-                    placeholder="Eg: My Title"
-                />
+                            type="text"
+                            label="Title"
+                            placeholder="Eg: My Title"
+                        />
 
-                <FastField
-                    name="category"
-                    component={SelectField}
+                        <FastField
+                            name="category"
+                            component={SelectField}
 
-                    type="select"
-                    label="Category"
+                            type="select"
+                            label="Category"
 
-                    options={CATEGORIES}
-                />
+                            options={CATEGORIES}
+                        />
 
-                <FastField
-                    name="content"
-                    component={InputField}
+                        <FastField
+                            name="content"
+                            component={InputField}
 
-                    type="textarea"
-                    label="Content"
-                    placeholder="Eg: My Content"
-                />
+                            type="textarea"
+                            label="Content"
+                            placeholder="Eg: My Content"
+                        />
 
-                <FastField
-                    name="photoUrl"
-                    component={RandomPhotoField}
+                        <FastField
+                            name="photoUrl"
+                            component={RandomPhotoField}
 
-                    label="Random A Photo"
-                />
+                            label="Random A Photo"
+                        />
 
-                <Button type="submit" color="primary">Add to album</Button>
-            </Form>
+                        <Button
+                            type="submit"
+                            outline
+                            color={isAddMode ? 'primary' : 'success'}
+                        >
+                            {isAddMode ? 'Add to album' : 'Update your photo' }
+                            {isSubmitting && <Spinner size="sm" color="dark" />}
+                        </Button>
+                    </Form>
+                );
+            }}
+
         </Formik>
 
     );

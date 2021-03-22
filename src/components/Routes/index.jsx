@@ -7,21 +7,37 @@ import {
 } from 'react-router-dom';
 import Header from '../Header';
 import NotFound from '../NotFound';
+import Banner from '../Banner';
+import PrivateRoute from './PrivateRoute';
+import Login from '../../features/Login';
 
 const Home = React.lazy(() => import('../../features/Home'));
 const Photos = React.lazy(() => import('../../features/Photos'));
-const Users = React.lazy(() => import('../../features/Users'));
 
 const routes = [
     {
-        path: '/photos',
-        component: Photos,
-        title: 'Photos'
+        path: '/',
+        component: Home,
+        exact: true,
+        is_private: true
     },
     {
-        path: '/users',
-        component: Users,
-        title: 'Users'
+        path: '/login',
+        component: Login,
+        exact: true,
+        is_private: true
+    },
+    {
+        path: '/register',
+        component: Login,
+        exact: true,
+        is_private: true
+    },
+    {
+        path: '/photos',
+        component: Photos,
+        title: 'Photos',
+        is_private: true
     }
 ];
 
@@ -31,16 +47,20 @@ function Routes() {
             <Suspense fallback={<div>Loading...</div>}>
                 <Router>
                     <Header />
+                    <Banner />
                     <Switch>
-                        <Route exact path="/" component={Home} />
-                        {routes.map((route, i) => (
-                            <Route
-                                path={route.path}
-                                key={i.toString()}
-                                component={route.component}
-                            />
-                        ))}
-                        <Route component={NotFound} />
+                        {routes.map((route, i) => {
+                            const { is_private: isPrivate, exact } = route;
+                            console.log('exact', !!exact);
+                            return (
+                                <Route
+                                    exact={!!exact}
+                                    path={route.path}
+                                    key={i.toString()}
+                                    component={route.component}
+                                />
+                            );
+                        })}
                     </Switch>
                 </Router>
             </Suspense>
