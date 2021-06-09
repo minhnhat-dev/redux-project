@@ -15,35 +15,44 @@ function Header(props) {
         <header>
             <Container fluid>
                 <Row className="header">
-                    <Col xs="auto">
-                        <NavLink
-                            exact
-                            to="/"
-                            className="header__title front-size-30"
-                            activeClassName="header__title--active"
-                        >
-                            Home
-                        </NavLink>
+                    {/* // xs="12" sm="6" md="6" */}
+                    <Col xs="12" sm="6" md="6" className="header__logo">
+                        <h3>Logo</h3>
                     </Col>
-                    <Col xs="auto">
-                        <NavLink
-                            to="/photos"
-                            className="header__title"
-                            activeClassName="header__title--active"
-                        >
-                            Photos
-                        </NavLink>
-                    </Col>
-                    <Col xs="auto">
-                        <NavLink
-                            to="/photos/add"
-                            className="header__title"
-                            activeClassName="header__title--active"
-                        >
-                            Add Photos
-                        </NavLink>
-                    </Col>
+                    <Col xs="12" sm="6" md="6">
+                        <div className="header__link-right">
+                            <NavLink
+                                exact
+                                to="/"
+                                className="header__title"
+                                activeClassName="header__title--active"
+                            >
+                                Trang chủ
+                            </NavLink>
+                            <NavLink
+                                to="/hot-trends"
+                                className="header__title"
+                                activeClassName="header__title--active"
+                            >
+                                Hot Trends
+                            </NavLink>
+                            <NavLink
+                                to="/categories"
+                                className="header__title"
+                                activeClassName="header__title--active"
+                            >
+                                Danh mục
+                            </NavLink>
+                            <NavLink
+                                to="/login"
+                                className="header__title"
+                                activeClassName="header__title--active"
+                            >
+                                Đăng nhập
+                            </NavLink>
+                        </div>
 
+                    </Col>
                 </Row>
             </Container>
         </header>

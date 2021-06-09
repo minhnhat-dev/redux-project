@@ -1,0 +1,44 @@
+
+.row {
+    margin: 0px;
+    padding: 0px;
+}
+.posts-banner {
+    position: relative;
+    justify-content: center;
+    background-color: #eff2f5;
+
+    &__banner{
+        &__header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__svg-image {
+        z-index: -1;
+        position: absolute;
+        top: 0px;
+        height: 70%;
+        max-width: 100%;
+    }
+}
+
+.posts-list {
+    justify-content: center;
+    text-align: center;
+    background-color: #eff2f5;
+
+    &__center {
+        width: 100%;
+        background-color: #ffffff;
+        padding: 0px 10px 0px 0px !important; 
+        border-radius: 10px;
+    }
+
+}
+
+.display-non {
+    display: block !important;
+}

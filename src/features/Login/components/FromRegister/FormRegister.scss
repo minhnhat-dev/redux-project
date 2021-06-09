@@ -9,11 +9,10 @@
         color: white;
         padding: 7px;
         text-align: center;
-        text-decoration: none;
         display: inline-block;
         font-size: 16px;
+        text-decoration: none;
     }
-
     &__login:hover {
         text-decoration: none;
         opacity: 0.7;
@@ -24,9 +23,7 @@
     &__box-input {
         display: grid;
         grid-template-columns: 1fr;
-        grid-column-gap: 10px;
         grid-row-gap: 10px;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: center;
     }
 }

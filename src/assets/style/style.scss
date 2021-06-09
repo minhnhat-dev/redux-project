@@ -1,9 +1,17 @@
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .front-size-30{
     font-size: 30px;
+}
+
+.front-size-20{
+    font-size: 20px;
+}
+
+.front-size-15{
+    font-size: 15px;
 }
 
 .padding-left-10 {
@@ -12,6 +20,14 @@ body {
 
 .padding-right-10 {
     padding-right: 10px;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.padding-top-10 {
+    padding-top: 10px;
 }
 
 .padding-bottom-30 {

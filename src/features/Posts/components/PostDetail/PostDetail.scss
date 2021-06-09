@@ -1,0 +1,36 @@
+.posts-detail {
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    
+    &__img {
+        width: 80%;
+        border-radius: 10px;
+        padding: 10px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 13px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+        }
+    }
+
+    &__right-bar {
+        width: 20%;
+        flex-direction: column;
+        display: flex;
+
+        &__user {
+            padding: 10px 0px 10px 0px;
+        }
+
+        &__actions {
+            margin-top: auto;
+            max-width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+}

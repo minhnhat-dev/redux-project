@@ -2,20 +2,41 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 80px;
+    height: 130px;
     text-decoration: none;
-
+    
+    &__link-right {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
 
     &__title {
         font-weight: bold;
-        color: black;
-
+        font-size: 20px;
+        color: #2C3B43;
+        font-weight: 600;
         transition: all 0.25s ease-in-out 0s;
-            
+        padding: 15px;
         &--active,
         &:hover {
             text-decoration: none;
-            color: darkcyan;
+            color: #203F4F;
+            opacity: 0.9;
         }
-    }  
+    }
+
+    &__logo {
+        text-align:  center;
+    }
+
+    &__icon {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 700px) and (min-width: 400px) {
+    .header {
+        display: none;
+    }
 }

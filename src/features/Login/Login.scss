@@ -3,3 +3,83 @@
     justify-content: center;
     justify-items: center;
 }
+
+.login-box {
+    margin-top: 30px;
+
+    &__left {
+        max-width: 100%;
+        height: auto;
+        background-color: #30444E;
+        border-radius: 10px;
+        padding: 20px;
+
+    }
+
+    &__background {
+        background-color: white;
+        max-width: 100%;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        &__form {
+            max-width: 100%;
+            padding: 25px;
+
+            &__header {
+                text-align: center;
+                font-size: 20px;
+            }
+
+            &__buttons {
+                display: grid;
+                grid-template-columns: 1fr;
+                justify-items: center;
+                $border: 0.5px solid #30444E;
+                margin-top: 20px;
+
+                &__facebook {
+                    background-color: #3A689D; /* Green */
+                    border-radius: 10px;
+                    border: $border;
+                    color: white;
+                    padding: 5px 15%;;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin-bottom: 15px;
+                }
+
+                &__email {
+                    background-color: #CC5353; /* Green */
+                    border-radius: 10px;
+                    border: $border;
+                    color: white;
+                    padding: 5px 18%;;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                }
+
+                button:hover {
+                    text-decoration: none;
+                    opacity: 0.7;
+                    color: white;
+                    transition: all 0.25s ease 0s;
+                }
+
+            }
+        }
+       
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+.icon-facebook {
+    position: relative;
+    top: 2px;
+}

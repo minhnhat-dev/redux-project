@@ -6,9 +6,16 @@ import { NavLink } from 'react-router-dom';
 import * as Yup from 'yup';
 import InputField from '../../../../custom-fields/InputField';
 
-import './FormLogin.scss';
+import './FormRegister.scss';
 
 const listFields = [
+    {
+        name: 'name',
+        component: InputField,
+        type: 'text',
+        label: 'Tên',
+        placeholder: 'Tên'
+    },
     {
         name: 'email',
         component: InputField,
@@ -20,22 +27,35 @@ const listFields = [
         name: 'password',
         component: InputField,
         type: 'password',
-        label: 'Password',
-        placeholder: 'Your Password'
+        label: 'Mật khẩu',
+        placeholder: 'Mật khẩu'
+    },
+    {
+        name: 'confirm_password',
+        component: InputField,
+        type: 'password',
+        label: 'Xác nhận mật khẩu',
+        placeholder: 'Xác nhận mật khẩu'
     }
 ];
 
-function FormLogin(props) {
+function FormRegister(props) {
     const { onSubmit, initValues, isAddMode } = props;
     const initialValues = {
+        name: '',
         email: '',
-        password: ''
+        password: '',
+        confirm_password: ''
     };
     const userLoginSchema = Yup.object().shape({
+        name: Yup.string()
+            .required('Tên buộc nhập!'),
         email: Yup.string()
             .required('Email buộc nhập!'),
         password: Yup.string()
-            .required('Mật khẩu buộc nhập!')
+            .required('Mật khẩu buộc nhập!'),
+        confirm_password: Yup.string()
+            .required('Xác nhận mật khẩu buộc nhập!')
     });
 
     function handleOnSubmit(values, actions) {
@@ -63,15 +83,16 @@ function FormLogin(props) {
                         ))}
                         <div className="form-input__box-input">
                             <button type="submit" className="form-input__login">
-                                Xác nhận &ensp;
-                                {isSubmitting && <Spinner size="sm" color="white" />}
+                                Xác nhận
+                                {isSubmitting && <Spinner size="sm" color="dark" />}
                             </button>
                             <NavLink
-                                to="/register"
+                                to="/login"
                                 className="form-input__login"
                             >
-                                Đăng ký
+                                Đăng nhập
                             </NavLink>
+
                         </div>
                     </Form>
                 );
@@ -80,8 +101,8 @@ function FormLogin(props) {
     );
 }
 
-FormLogin.propTypes = {
+FormRegister.propTypes = {
 
 };
 
-export default FormLogin;
+export default FormRegister;

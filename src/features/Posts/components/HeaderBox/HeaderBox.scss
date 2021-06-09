@@ -1,0 +1,42 @@
+.box-categories {
+    border-radius: 10px;
+    margin: 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 35px 40px -5px;
+    &__img {
+        border-radius: 20px;
+        padding: 7px;
+    }
+
+    &__background {
+        background-color: white;
+        max-width: 100%;
+        margin: 0px 10px 10px 10px;
+        position: relative;
+        top: 10px;
+        border-radius: 10px;
+        height: 90%;
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 35px);
+        justify-items: center;
+        align-items: center;
+        font-size: 16px;
+       //  background-color: #eff2f5;
+
+        p {
+            padding: 0px;
+            margin: 0px;
+        }
+        
+        .fa-laugh, .fa-hotjar {
+            font-size: 20px;
+            position: relative;
+            top: 2px;
+            padding-right: 8px;
+        }
+    }
+}
+

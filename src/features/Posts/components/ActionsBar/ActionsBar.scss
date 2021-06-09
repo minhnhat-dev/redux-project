@@ -1,0 +1,26 @@
+.actions-bar {
+    width: 100%;
+    height: auto;
+    background-color: #30444E;
+    border-radius: 10px;
+    color: white;
+
+    p {
+        padding: 0px;
+        margin: 0px;
+        font-size: 10px;
+    }
+
+    &__box {
+        display: grid;
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        height: auto;
+        padding: 8px;
+        
+        i {
+            font-size: 40px;
+        }
+
+    }
+}

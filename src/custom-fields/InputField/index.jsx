@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormGroup, Label, Input, FormFeedback } from 'reactstrap';
+import { FormGroup, Label, Input, FormFeedback, Col } from 'reactstrap';
 import { ErrorMessage } from 'formik';
 // field, // { name, value, onChange, onBlur }
 // form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
